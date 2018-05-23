@@ -1,4 +1,5 @@
 {
+    "name": "anytime/gdpr",
     "require": {
         "phpdocumentor/phpdocumentor": "2.*"
     }
