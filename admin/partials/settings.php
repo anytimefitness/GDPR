@@ -15,63 +15,6 @@
 		<?php settings_fields( 'gdpr' ); ?>
 
 		<div class="gdpr-tab hidden" data-id="general">
-			<h2><?php esc_html_e( 'General', 'gdpr' ) ?></h2>
-			<table class="form-table" data-id="general">
-				<tbody>
-					<tr>
-						<th scope="row">
-							<label for="gdpr_privacy_policy_page"><?php esc_html_e( 'Privacy Policy Page', 'gdpr' ) ?></label>
-						</th>
-						<td>
-							<?php
-								$pages = get_pages();
-							?>
-							<select name="gdpr_privacy_policy_page" id="gdpr_privacy_policy_page">
-								<option value=""><?php esc_html_e( '-- Select --', 'gdpr' ) ?></option>
-								<?php foreach ( $pages as $page ): ?>
-									<option value="<?php echo esc_attr( $page->ID ) ?>" <?php selected( $privacy_policy_page, $page->ID ); ?>><?php echo esc_html( $page->post_title ); ?></option>
-								<?php endforeach ?>
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">
-							<label for="gdpr_email_limit"><?php esc_html_e( 'Outgoing email limitation', 'gdpr' ) ?></label>
-						</th>
-						<td>
-							<?php $limit = get_option( 'gdpr_email_limit', 100 ); ?>
-							<input type="number" name="gdpr_email_limit" id="gdpr_email_limit" value="<?php echo esc_attr( $limit ); ?>">
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">
-							<label for="gdpr_deletion_needs_review"><?php esc_html_e( 'User deletion', 'gdpr' ) ?></label>
-						</th>
-						<td>
-							<?php $needs_review = get_option( 'gdpr_deletion_needs_review', true ); ?>
-							<input type="checkbox" name="<?php echo esc_attr( 'gdpr_deletion_needs_review' ); ?>" id="gdpr_deletion_needs_review" value="1"  <?php checked( $needs_review, true ); ?>><span class="description"><label for="gdpr_deletion_needs_review"><?php esc_html_e( 'Send all deletion requests to the review table.', 'gdpr' ); ?></label></label>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">
-							<label for="gdpr_disable_css"><?php esc_html_e( 'Disable CSS', 'gdpr' ) ?></label>
-						</th>
-						<td>
-							<?php $disable_css = get_option( 'gdpr_disable_css', false ); ?>
-							<input type="checkbox" name="<?php echo esc_attr( 'gdpr_disable_css' ); ?>" id="gdpr_disable_css" value="1"  <?php checked( $disable_css, true ); ?>><label for="gdpr_disable_css"><span class="description"><?php esc_html_e( 'Make sure you know what you are doing before checking this.', 'gdpr' ); ?></span></label>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">
-							<label for="gdpr_enable_telemetry_tracker"><?php esc_html_e( 'Enable the Telemetry Tracker', 'gdpr' ) ?></label>
-						</th>
-						<td>
-							<?php $enable_telemetry = get_option( 'gdpr_enable_telemetry_tracker', false ); ?>
-							<input type="checkbox" name="<?php echo esc_attr( 'gdpr_enable_telemetry_tracker' ); ?>" id="gdpr_enable_telemetry_tracker" value="1"  <?php checked( $enable_telemetry, true ); ?>><label for="gdpr_enable_telemetry_tracker"><span class="description"><?php esc_html_e( 'Toggles the Telemetry Tracker On/Off. (experimental)', 'gdpr' ); ?></span></label>
-						</td>
-					</tr>
-				</tbody>
-			</table>
 			<h2 class="title"><?php esc_html_e( 'Privacy Center', 'gdpr' ); ?></h2>
 			<p>
 				<?php esc_html_e( 'This section handles the privacy bar and some of the privacy preferences window.', 'gdpr' ) ?><br>
@@ -99,70 +42,6 @@
 					</tr>
 				</tbody>
 			</table>
-			<h2 class="title"><?php esc_html_e( 'Request Forms reCAPTCHA', 'gdpr' ); ?></h2>
-			<p><?php esc_html_e( 'To prevent spam attacks, you have the option to enable reCAPTCHA. Configure below your keys to make it work with our request forms.', 'gdpr' ); ?></p>
-			<p>
-				<?php echo sprintf(
-					/* translators: External link with instructions on how to proceed. */
-					esc_html__( 'You can find the necessary information %s.', 'gdpr' ),
-					'<a href="https://www.google.com/recaptcha/admin" target="_blank">' . esc_html__( 'here', 'gdpr' ) . '</a>'
-				) ?></p>
-			<table class="form-table" data-id="general">
-				<tbody>
-					<tr>
-						<th scope="row">
-							<label for="gdpr_use_recaptcha"><?php esc_html_e( 'Enable reCAPTCHA', 'gdpr' ) ?></label>
-						</th>
-						<td>
-							<?php $use_recaptcha = get_option( 'gdpr_use_recaptcha', false ); ?>
-							<input type="checkbox" name="<?php echo esc_attr( 'gdpr_use_recaptcha' ); ?>" id="gdpr_use_recaptcha" value="1"  <?php checked( $use_recaptcha, true ); ?>>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">
-							<label for="gdpr_recaptcha_site_key"><?php esc_html_e( 'Site Key', 'gdpr' ) ?></label>
-						</th>
-						<td>
-							<?php $site_key = get_option( 'gdpr_recaptcha_site_key', '' ); ?>
-							<input type="text" name="gdpr_recaptcha_site_key" value="<?php echo esc_attr( $site_key ); ?>" placeholder="">
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">
-							<label for="gdpr_recaptcha_secret_key"><?php esc_html_e( 'Secret Key', 'gdpr' ) ?></label>
-						</th>
-						<td>
-							<?php $secret_key = get_option( 'gdpr_recaptcha_secret_key', '' ); ?>
-							<input type="password" name="gdpr_recaptcha_secret_key" value="<?php echo esc_attr( $secret_key ); ?>" placeholder="">
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<?php if ( class_exists( 'WooCommerce' ) ): ?>
-				<h2 class="title"><?php esc_html_e( 'WooCommerce', 'gdpr' ); ?></h2>
-				<table class="form-table" data-id="general">
-					<tbody>
-						<tr>
-							<th scope="row">
-								<label for="gdpr_add_consent_checkboxes_registration"><?php esc_html_e( 'Add consent checkboxes to the registration page', 'gdpr' ) ?></label>
-							</th>
-							<td>
-								<?php $add_checkboxes_to_registration = get_option( 'gdpr_add_consent_checkboxes_registration', false ); ?>
-								<input type="checkbox" name="<?php echo esc_attr( 'gdpr_add_consent_checkboxes_registration' ); ?>" id="gdpr_add_consent_checkboxes_registration" value="1"  <?php checked( $add_checkboxes_to_registration, true ); ?>>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">
-								<label for="gdpr_add_consent_checkboxes_checkout"><?php esc_html_e( 'Add consent checkboxes to the checkout registration form', 'gdpr' ) ?></label>
-							</th>
-							<td>
-								<?php $add_checkboxes_to_checkout = get_option( 'gdpr_add_consent_checkboxes_checkout', false ); ?>
-								<input type="checkbox" name="<?php echo esc_attr( 'gdpr_add_consent_checkboxes_checkout' ); ?>" id="gdpr_add_consent_checkboxes_checkout" value="1"  <?php checked( $add_checkboxes_to_checkout, true ); ?>>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			<?php endif ?>
 		</div>
 		<div class="gdpr-tab hidden" data-id="cookies">
 			<h2><?php esc_html_e( 'Cookies', 'gdpr' ) ?></h2>
@@ -193,7 +72,7 @@
 													<tr>
 														<th><label for="cookies-used-<?php echo esc_attr( $tab_key ); ?>"><?php esc_html_e( 'Cookies used by the site', 'gdpr' ); ?></label></th>
 														<td>
-															<textarea cols="53" rows="3" name="<?php echo esc_attr( 'gdpr_cookie_popup_content' ); ?>[<?php echo esc_attr( $tab_key ); ?>][cookies_used]" id="cookies-used-<?php echo esc_attr( $tab_key ); ?>" required><?php echo esc_attr( $tab['cookies_used'] ); ?></textarea>
+															<textarea cols="53" rows="3" name="<?php echo esc_attr( 'gdpr_cookie_popup_content' ); ?>[<?php echo esc_attr( $tab_key ); ?>][cookies_used]" id="cookies-used-<?php echo esc_attr( $tab_key ); ?>"><?php echo esc_attr( $tab['cookies_used'] ); ?></textarea>
 															<br>
 															<span class="description"><?php esc_html_e( 'Comma separated list.', 'gdpr' ); ?></span>
 														</td>

@@ -13,15 +13,19 @@
 ?>
 
 <div class="gdpr gdpr-privacy-bar" style="display:none;">
-	<div class="gdpr-wrapper">
-		<div class="gdpr-content">
-			<p>
-				<?php echo nl2br( wp_kses_post( $content ) ); ?>
-			</p>
-		</div>
-		<div class="gdpr-right">
-			<button class="gdpr-preferences" type="button"><?php esc_html_e( 'Privacy Preferences', 'gdpr' ); ?></button>
-			<button class="gdpr-agreement" type="button"><?php echo esc_html( $button_text ); ?></button>
-		</div>
-	</div>
+    <div class="gdpr-wrapper">
+        <div class="gdpr-content">
+            <p>
+                <?= nl2br(wp_kses_post($content)) ?>
+            </p>
+        </div>
+        <div class="gdpr-right">
+            <button class="gdpr-preferences hidden" type="button">
+                <?= esc_html(translate('Privacy Preferences', 'gdpr')) ?>
+            </button>
+            <button class="gdpr-agreement btn btn-rounded btn-border btn-white btn-sml btn-submit-form" type="button">
+                <?= esc_html($button_text) ?>
+            </button>
+        </div>
+    </div>
 </div>

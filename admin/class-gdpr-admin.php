@@ -201,7 +201,7 @@ class GDPR_Admin {
 	public function register_settings() {
 		$settings = array(
 			'gdpr_privacy_policy_page'                 => 'intval',
-			'gdpr_cookie_banner_content'               => array( $this, 'sanitize_with_links' ),
+			'gdpr_cookie_banner_content'               => 'sanitize_textarea_field',
 			'gdpr_cookie_privacy_excerpt'              => 'sanitize_textarea_field',
 			'gdpr_cookie_popup_content'                => array( $this, 'sanitize_cookie_tabs' ),
 			'gdpr_email_limit'                         => 'intval',
@@ -516,28 +516,6 @@ class GDPR_Admin {
 		}
 
 		wp_send_json_success( $log );
-	}
-
-	/**
-	 * Admin notice when the user haven't picked a privacy policy page.
-	 * @since  1.0.0
-	 * @author Fernando Claussen <fernandoclaussen@gmail.com>
-	 */
-	public function privacy_policy_page_missing() {
-		$privacy_page = get_option( 'gdpr_privacy_policy_page', '' );
-		if ( ! empty( $privacy_page ) ) {
-			return;
-		}
-		?>
-			<div class="notice notice-error is-dismissible">
-				<p>
-					<strong><?php echo esc_html__( '[GDPR] You must select a Privacy Policy Page.', 'gdpr' ); ?></strong>
-				</p>
-				<p>
-					<a href="<?php echo esc_url( admin_url( 'admin.php?page=gdpr-settings' ) ) ?>" class="button button-primary"><?php esc_html_e( 'Select your Privacy Policy page', 'gdpr' ); ?></a>
-				</p>
-			</div>
-		<?php
 	}
 
 	/**

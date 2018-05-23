@@ -43,7 +43,6 @@
 		transform: scale(1);
 		line-height: 1.5;
 		display: block;
-		min-width: auto;
 		max-width: auto;
 		&:before, &:after {
 			display: inline-block;
@@ -56,9 +55,6 @@
 			background: none;
 		}
 		&:hover, &:active, &:focus {
-			margin: 0;
-			border: none;
-			box-shadow: none;
 		}
 	}
 	img {
@@ -123,13 +119,6 @@
 							}
 						}
 					}
-					&:last-of-type{
-						margin-right: 0;
-						margin-left: 20px;
-						@include breakpoint(small-only) {
-							margin: 0;
-						}
-					}
 				}
 			}
 		}
@@ -159,81 +148,11 @@
 				background:none;
 			}
 		}
-		button {
+		button.gdpr-preferences {
 			margin: 0 5px;
 			padding: 9px 10px;
 			@include breakpoint(small-only) {
 				margin: 0;
-			}
-		}
-		.gdpr-agreement {
-			position: relative;
-			font-size: 13px;
-			font-weight: normal;
-			padding: 12px 36px 12px 76px;
-			height: auto;
-			line-height: 1.4285714;
-			white-space: normal;
-			margin: 0;
-			border-width: 1px;
-			border-style: solid;
-			border-radius: 3px;
-			box-sizing: border-box;
-			background: #0085ba;
-			border-color: #0073aa #006799 #006799;
-			box-shadow: 0 1px 0 #006799;
-			color: #fff;
-			text-decoration: none;
-			text-shadow: 0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
-			&:hover {
-				background: #008ec2;
-				border-color: #006799;
-				&:before {
-					font-size: 26px;
-					background: #fafafa;
-					color: #00b9eb;
-				}
-			}
-			&:active, &:focus {
-				background: #0073aa;
-				border-color: #006799;
-				box-shadow: inset 0 2px 0 #006799;
-				vertical-align: top;
-				&:before {
-					box-shadow: inset 0 2px 0 #ccc;
-					vertical-align: top;
-				}
-			}
-			&:before {
-				content: '\2713';
-				top: -1px;
-				bottom: -1px;
-				left: -1px;
-				position: absolute;
-				width: 42.5px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				transition: all 0.2s;
-				transform: translateZ(0);
-				text-shadow: none;
-				text-decoration: none;
-				font-size: 13px;
-				line-height: 26px;
-				cursor: pointer;
-				border-width: 1px;
-				border-style: solid;
-				appearance: none;
-				border-top-left-radius: 3px;
-				border-bottom-left-radius: 3px;
-				white-space: nowrap;
-				box-sizing: border-box;
-				color: #555;
-				border-color: #ccc;
-				background: #f7f7f7;
-				box-shadow: 0 1px 0 #ccc;
-				vertical-align: top;
-				border-right: none;
 			}
 		}
 	}
