@@ -13,10 +13,10 @@
  * @package           GDPR
  *
  * @wordpress-plugin
- * Plugin Name:       GDPR
+ * Plugin Name:       GDPR - AnytimeFitness
  * Plugin URI:        https://trewknowledge.com
  * Description:       This plugin is meant to assist a Controller, Data Processor, and Data Protection Officer (DPO) with efforts to meet the obligations and rights enacted under the GDPR.
- * Version:           1.4.7
+ * Version:           10.0.0
  * Author:            Trew Knowledge
  * Author URI:        https://trewknowledge.com
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'GDPR_VERSION', '1.4.7' );
+define( 'GDPR_VERSION', '10.0.0' );
 
 /**
  * The code that runs during plugin activation.
