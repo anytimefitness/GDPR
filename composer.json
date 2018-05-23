@@ -1,6 +1,6 @@
 {
     "name": "anytime/gdpr",
     "require": {
-        "phpdocumentor/phpdocumentor": "2.*"
+        "phpdocumentor/phpdocumentor": "^1.0,^2.0,^3.0"
     }
 }
