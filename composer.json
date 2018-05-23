@@ -1,3 +1,4 @@
 {
-    "name": "anytime/gdpr"
+    "name": "anytime/gdpr",
+    "type": "wordpress-plugin"
 }
