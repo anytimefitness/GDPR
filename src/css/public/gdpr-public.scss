@@ -122,39 +122,6 @@
 				}
 			}
 		}
-		.gdpr-preferences {
-			font-weight: normal;
-			font-size: 14px;
-			text-decoration: underline;
-			position: relative;
-			margin-left: 9px;
-			color: #fff;
-			float: left;
-			&:before {
-				content: '\276F';
-				font-size: 1.1em;
-				font-weight: normal;
-				padding-right: 5px;
-				color: #fff;
-				position: absolute;
-				left: -7px;
-				top: 10px;
-			}
-			&:hover,
-			&:active,
-			&:focus,
-			&:focus-within,
-			&:visited {
-				background:none;
-			}
-		}
-		button.gdpr-preferences {
-			margin: 0 5px;
-			padding: 9px 10px;
-			@include breakpoint(small-only) {
-				margin: 0;
-			}
-		}
 	}
 	&.gdpr-privacy-preferences, &.gdpr-general-confirmation {
 		.gdpr-wrapper {
