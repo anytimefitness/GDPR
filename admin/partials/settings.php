@@ -131,7 +131,7 @@
 				<?php
 				$default_consent_types = array(
 					'privacy-policy' => array(
-						'name' => 'Privacy Policy',
+						'name' => __('Privacy Policy', 'gdpr'),
 						'required' => 'on',
 						'description' => sprintf( __( 'You read and agreed to our %s.', 'gdpr' ), '<a href="" target="_blank">' . esc_html( 'Privacy Policy', 'gdpr' ) . '</a>' ),
 						'registration' => sprintf( __( 'You read and agreed to our %s.', 'gdpr' ), '<a href="" target="_blank">' . esc_html( 'Privacy Policy', 'gdpr' ) . '</a>' ),
