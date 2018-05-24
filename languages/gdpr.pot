@@ -29,6 +29,10 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: admin/partials/settings.php:134, admin/partials/settings.php:136, admin/partials/settings.php:137
+msgid "Privacy Policy"
+msgstr ""
+
 #: admin/class-gdpr-admin.php:271
 msgid "General"
 msgstr ""

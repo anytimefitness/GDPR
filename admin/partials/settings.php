@@ -131,10 +131,10 @@
 				<?php
 				$default_consent_types = array(
 					'privacy-policy' => array(
-						'name' => __('Privacy Policy', 'gdpr'),
+						'name' => translate( 'Privacy Policy', 'gdpr' ),
 						'required' => 'on',
-						'description' => sprintf( __( 'You read and agreed to our %s.', 'gdpr' ), '<a href="" target="_blank">' . esc_html( 'Privacy Policy', 'gdpr' ) . '</a>' ),
-						'registration' => sprintf( __( 'You read and agreed to our %s.', 'gdpr' ), '<a href="" target="_blank">' . esc_html( 'Privacy Policy', 'gdpr' ) . '</a>' ),
+						'description' => sprintf( __( 'You read and agreed to our %s.', 'gdpr' ), '<a href="" target="_blank">' . translate( 'Privacy Policy', 'gdpr' ) . '</a>' ),
+						'registration' => sprintf( __( 'You read and agreed to our %s.', 'gdpr' ), '<a href="" target="_blank">' . translate( 'Privacy Policy', 'gdpr' ) . '</a>' ),
 					)
 				);
 				$consent_types = get_option( 'gdpr_consent_types', $default_consent_types ); ?>
