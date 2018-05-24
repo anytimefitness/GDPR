@@ -61,11 +61,24 @@ class GDPR_Admin {
 		$this->plugin_name  = $plugin_name;
 		$this->version      = $version;
 		$this->allowed_html = array(
-			'a' => array(
-				'href' => true,
-				'title' => true,
-				'target' => true,
-			),
+            'a' => array(
+                'href' => true,
+                'class' => true,
+                'title' => true,
+                'target' => true,
+            ),
+            'span' => array(
+                'class' => true,
+                'title' => true,
+            ),
+            'p' => array(
+                'class' => true,
+                'title' => true,
+            ),
+            'div' => array(
+                'class' => true,
+                'title' => true,
+            ),
 		);
 	}
 
@@ -201,7 +214,7 @@ class GDPR_Admin {
 	public function register_settings() {
 		$settings = array(
 			'gdpr_privacy_policy_page'                 => 'intval',
-			'gdpr_cookie_banner_content'               => 'sanitize_textarea_field',
+			'gdpr_cookie_banner_content'               => array($this, 'sanitize_with_links'),
 			'gdpr_cookie_privacy_excerpt'              => 'sanitize_textarea_field',
 			'gdpr_cookie_popup_content'                => array( $this, 'sanitize_cookie_tabs' ),
 			'gdpr_email_limit'                         => 'intval',
