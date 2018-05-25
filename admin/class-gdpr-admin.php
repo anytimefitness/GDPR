@@ -116,29 +116,9 @@ class GDPR_Admin {
 		$function    = array( $this, 'requests_page_template' );
 		$icon_url    = 'dashicons-id';
 
-		$requests = get_option( 'gdpr_requests', array() );
-		$confirmed_requests = array_filter( $requests, function( $item ) {
-			return $item['confirmed'] == true;
-		} );
-
 		$menu_title  = esc_html__( 'GDPR', 'gdpr' );
-		if ( count( $confirmed_requests ) ) {
-			$menu_title  = sprintf( esc_html( 'GDPR %s' ), '<span class="awaiting-mod">' . count( $confirmed_requests ) . '</span>' );
-		}
 
 		add_menu_page( $page_title, $menu_title, $capability, $parent_slug, $function, $icon_url );
-
-		$menu_title = esc_html__( 'Requests', 'gdpr' );
-		$menu_slug  = 'gdpr-requests';
-		$function   = array( $this, 'requests_page_template' );
-
-		$requests_hook = add_submenu_page( $parent_slug, $menu_title, $menu_title, $capability, $menu_slug, $function );
-
-		$menu_title = esc_html__( 'Tools', 'gdpr' );
-		$menu_slug  = 'gdpr-tools';
-		$function   = array( $this, 'tools_page_template' );
-
-		$tools_hook = add_submenu_page( $parent_slug, $menu_title, $menu_title, $capability, $menu_slug, $function );
 
 		$menu_title = esc_html__( 'Settings', 'gdpr' );
 		$menu_slug  = 'gdpr-settings';
@@ -146,19 +126,6 @@ class GDPR_Admin {
 
 		$settings_hook = add_submenu_page( $parent_slug, $menu_title, $menu_title, $capability, $menu_slug, $function );
 
-
-		$menu_slug  = 'edit.php?post_type=telemetry';
-
-		$cpt = 'telemetry';
-		$cpt_obj = get_post_type_object( $cpt );
-
-		if ( $cpt_obj ) {
-			add_submenu_page( $parent_slug, $cpt_obj->labels->name, $cpt_obj->labels->menu_name, $capability, $menu_slug );
-		}
-
-
-		add_action( "load-{$requests_hook}", array( 'GDPR_Help', 'add_requests_help' ) );
-		add_action( "load-{$tools_hook}", array( 'GDPR_Help', 'add_tools_help' ) );
 		add_action( "load-{$settings_hook}", array( 'GDPR_Help', 'add_settings_help' ) );
 		add_action( "load-edit.php", array( 'GDPR_Help', 'add_telemetry_help' ) );
 	}
