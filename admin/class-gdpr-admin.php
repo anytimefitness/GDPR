@@ -112,7 +112,7 @@ class GDPR_Admin {
 	public function add_menu() {
 		$page_title  = esc_html__( 'GDPR', 'gdpr' );
 		$capability  = 'manage_options';
-		$parent_slug = 'gdpr-requests';
+		$parent_slug = 'gdpr-settings';
 		$function    = array( $this, 'settings_page_template' );
 		$icon_url    = 'dashicons-id';
 
