@@ -113,21 +113,12 @@ class GDPR_Admin {
 		$page_title  = esc_html__( 'GDPR', 'gdpr' );
 		$capability  = 'manage_options';
 		$parent_slug = 'gdpr-requests';
-		$function    = array( $this, 'requests_page_template' );
+		$function    = array( $this, 'settings_page_template' );
 		$icon_url    = 'dashicons-id';
 
 		$menu_title  = esc_html__( 'GDPR', 'gdpr' );
 
 		add_menu_page( $page_title, $menu_title, $capability, $parent_slug, $function, $icon_url );
-
-		$menu_title = esc_html__( 'Settings', 'gdpr' );
-		$menu_slug  = 'gdpr-settings';
-		$function   = array( $this, 'settings_page_template' );
-
-		$settings_hook = add_submenu_page( $parent_slug, $menu_title, $menu_title, $capability, $menu_slug, $function );
-
-		add_action( "load-{$settings_hook}", array( 'GDPR_Help', 'add_settings_help' ) );
-		add_action( "load-edit.php", array( 'GDPR_Help', 'add_telemetry_help' ) );
 	}
 
 	/**
