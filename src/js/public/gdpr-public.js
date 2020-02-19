@@ -47,7 +47,7 @@
 		 * It submits the form that is still hidden with the cookies and consent options.
 		 */
 		$(document).on('click', '.gdpr.gdpr-privacy-bar .gdpr-agreement', function() {
-			$('.gdpr-privacy-bar').css('visibility','hidden');
+			$('.gdpr-privacy-bar').hide();
       $('.gdpr-privacy-preferences-frm').submit();
     });
 
